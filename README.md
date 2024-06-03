@@ -23,3 +23,8 @@ python app/main.py
 ```
 http://localhost:8000/extract?text=<抽出したいテキスト>
 ```
+
+アプリケーションのテストを実行するには、以下のコマンドを実行します。
+```
+pytest
+```
