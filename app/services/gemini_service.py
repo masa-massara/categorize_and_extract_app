@@ -36,20 +36,11 @@ def extract_proper_nouns(text: str) -> dict:
     model = genai.GenerativeModel('gemini-1.5-pro', generation_config={"response_mime_type": "application/json"})
     try:
         response = model.generate_content(prompt)
-        
         # JSONの解析
         try:
             response_text = response.candidates[0].content.parts[0].text
-            
-            # 必要な部分のみを抽出して解析する
-            match = re.search(r'{"proper_nouns":.*}', response_text)
-            if match:
-                proper_nouns_json = match.group(0)
-                response_json = json.loads(proper_nouns_json)
-                proper_nouns = response_json.get("proper_nouns", None)
-                return {"proper_nouns": proper_nouns}
-            else:
-                return {"proper_nouns": None}
+            response_json = json.loads(response_text)
+            return response_json
         except (json.JSONDecodeError, KeyError, IndexError) as e:
             print(f"エラー: {e}")
             return {"proper_nouns": None}
