@@ -19,7 +19,7 @@ async def extract_proper_nouns_route(text: str = Query(..., description="Text to
     if not text:
         raise HTTPException(status_code=400, detail="Text is required")
     proper_nouns = extract_proper_nouns(text)
-    return {"properNoun": proper_nouns}
+    return proper_nouns
 
 # # テスト用に画面にOKと表示されるだけのルートを追加
 # @router.get("/health")

@@ -30,8 +30,8 @@ def test_extract_proper_nouns():
     response = client.get("/extract?text=ジョンは東京に行きました")
     assert response.status_code == 200
     json_response = response.json()
-    assert "properNoun" in json_response
-    assert json_response["properNoun"]["proper_nouns"] == ["ジョン", "東京"]
+    assert "proper_nouns" in json_response
+    assert json_response["proper_nouns"] == ["ジョン", "東京"]
 
 def test_extract_proper_nouns_no_text():
     """
