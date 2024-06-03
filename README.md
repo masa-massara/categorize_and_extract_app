@@ -12,6 +12,15 @@
 pip install -r requirements.txt
 ```
 
+## 環境変数の設定
+アプリケーションを動作させるために、以下の内容で .env ファイルをプロジェクトのルートディレクトリに作成してください。
+```
+GEMINI_API_KEY=<取得したAPIキー>
+```
+<取得したAPIキー>の部分を、APIキーに置き換えてください。
+APIキーの作り方は[こちら](https://aistudio.google.com/app/tuned_models/new_tuned_model)を参照してください。
+
+
 ## 使い方
 
 アプリケーションを起動するには、以下のコマンドを実行します。
