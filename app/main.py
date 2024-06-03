@@ -11,11 +11,9 @@ __date__ = '2024/06/03 (Created: 2024/06/03)'
 
 from fastapi import FastAPI
 from routes.extract import router as extract_router
-# from app.config import Config
 
 app = FastAPI()
 
-# ルートを追加
 app.include_router(extract_router)
 
 if __name__ == '__main__':
