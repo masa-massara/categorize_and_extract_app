@@ -5,9 +5,9 @@
 gemini_service.py
 """
 
-__author__ = 'Yoshikawa Masaya'
-__version__ = '1.0.0'
-__date__ = '2024/06/03 (Created: 2024/06/03)'
+__author__ = "Yoshikawa Masaya"
+__version__ = "1.0.0"
+__date__ = "2024/06/03 (Created: 2024/06/03)"
 
 from config import Config
 
@@ -18,6 +18,7 @@ import google.generativeai as genai
 from google.api_core.exceptions import InternalServerError, ResourceExhausted
 
 gemini_api_key = Config.GEMINI_API_KEY
+
 
 def extract_proper_nouns(text: str) -> dict:
     prompt = f"""
@@ -33,7 +34,9 @@ def extract_proper_nouns(text: str) -> dict:
     """
 
     genai.configure(api_key=gemini_api_key)
-    model = genai.GenerativeModel('gemini-1.5-pro', generation_config={"response_mime_type": "application/json"})
+    model = genai.GenerativeModel(
+        "gemini-1.5-pro", generation_config={"response_mime_type": "application/json"}
+    )
     try:
         response = model.generate_content(prompt)
         # JSONの解析
